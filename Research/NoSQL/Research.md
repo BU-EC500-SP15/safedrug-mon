@@ -1,2 +1,3 @@
 2/2/2015 - King Mui
+
 I have done an exhaustive amount of research online regarding NoSQL. Specifically for our project, we need a column type of database. The choices available for this category are Accumulo, Cassandra, Druid, HBase, or Vertica. I have decided on Cassandra because of existing code that Jay has written and used in his tutorial. I do not believe that differences between the databases matter, as long as we have the framework that accomplishes what we have set out to do. The syntax of Cassandra is extremely similar to our traditional relational database management system, so it should be relatively easy to pick up because of my existing knowledge of MySQL and PostgreSQL. 
