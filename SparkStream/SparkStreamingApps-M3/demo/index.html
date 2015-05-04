@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+
+circle {
+  fill: rgb(31, 119, 180);
+  fill-opacity: .25;
+  stroke: rgb(31, 119, 180);
+  stroke-width: 1px;
+}
+
+.leaf circle {
+  fill: #ff7f0e;
+  fill-opacity: 1;
+}
+
+text {
+  font: 10px sans-serif;
+}
+
+</style>
+</head>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+var diameter = 500,
+
+var pack = d3.layout.pack()
+.size([diameter - 4, diameter - 4])
+.value(function(d) { return 50; });
+
+var svg = d3.select("body").append("svg")
+.attr("width", diameter)
+.attr("height", diameter)
+.append("g")
+.attr("transform", "translate(2,2)");
+
+
+var dsv = d3.dsv("|", "text/plain");
+var format = d3.time.format("%a %b %d %H:%M:%S UTC %Y");
+
+dsv("tweetcuis_small.txt", function(data) {
+	console.log(data);
+	var node = svg.selectAll(".node")
+    .data(pack.nodes(data))
+  	.enter().append("g")
+    .attr("class", function(d) { console.log(d.cui); return "node"; })
+    .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+	
+	node.append("title")
+	    .text(function(d) { return d.cui ; });
+	
+	node.append("circle")
+	    .attr("r", function(d) { return d.r; });
+	
+	node.filter(function(d) { return !d.cui; }).append("text")
+	    .attr("dy", ".3em")
+	    .style("text-anchor", "middle")
+	    .text(function(d) { return d.cui; });
+		
+	});
+d3.select(self.frameElement).style("height", diameter + "px");
+</script>
+</body>
+</html>
