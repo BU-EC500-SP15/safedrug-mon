@@ -12,3 +12,11 @@ https://www.youtube.com/watch?v=gfWIUOapUp4
 
 
 In any case, that video can provide a good giudepost  .  Once you understand the concepts in it and can reproduce it, you are really ready to start hacking on the spark streaming twitter application.
+
+
+/SparkStream/SparkStreamingApps-M3/org/apache/ctakes/orgs was removed because of Github size limitations.
+
+Youtube Video Regarding Project:
+https://www.youtube.com/watch?v=BhF4xEbvMJM
+
+ 
